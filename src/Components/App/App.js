@@ -89,6 +89,8 @@ class App extends React.Component {
   }
 
   render() {
+    console.log('is it undefined?')
+    console.log(process.env.REACT_API_KEY)
     return (
       <div>
         <h1>Ja<span className="highlight">mmm</span>ing</h1>

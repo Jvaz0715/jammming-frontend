@@ -1,3 +1,5 @@
+const clientID = process.env.REACT_API_KEY;
+const redirectUri = 'http://localhost:3000';
 let accessToken;
 const Spotify = {
    getAccessToken(){
@@ -18,7 +20,7 @@ const Spotify = {
          // and allow us to grab a new access token after it expires
          window.setTimeout(() => accessToken = '', expiresIn * 1000);
          window.history.pushState('Access Token', null, '/');
-         return accessToken;
+         return accessToken; 
       };
    }
 };
