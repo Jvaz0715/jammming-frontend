@@ -2,6 +2,7 @@ import React from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import PlayList from '../PlayList/PlayList';
+import Spotify from "../../util/Spotify";
 
 import './App.css';
 
@@ -84,13 +85,13 @@ class App extends React.Component {
     const trackUris = this.state.playlistTracks.map(track => track.uri);
   }
 
-  search(userSearch){
-    console.log(userSearch)
+  search(term){
+    Spotify.search(term).then(searchResults => {
+      this.setState({searchResults: searchResults})
+    })
   }
 
   render() {
-    console.log('is it undefined?')
-    console.log(process.env.REACT_API_KEY)
     return (
       <div>
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
